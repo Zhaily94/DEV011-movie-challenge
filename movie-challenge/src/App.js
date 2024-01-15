@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+// Importa los componentes necesarios desde react-router-dom
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Movies from './pages/Movies';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        {/* Definición de rutas con Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Movies" element={<Movies />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
