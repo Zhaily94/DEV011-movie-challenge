@@ -1,0 +1,28 @@
+#navbar {
+    background-color: blue;
+    display: flex;
+    /* fill: linear-gradient(180deg, rgba(0, 0, 0, 0.17) 1.87%, rgba(0, 0, 0, 0.00) 101.87%); */
+}
+.form-input {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: baseline;
+    gap: 39rem;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color:#FA1F6F;
+}
+
+/* .nav-link {
+    color: aqua;
+} */
