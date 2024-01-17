@@ -1,7 +1,6 @@
-// Home.js
 import React from 'react';
-import Navbar from '../components/navbar.js';
-import MoviesList from '../components/moviesList.js';
+import Navbar from '../components/navbar.jsx';
+import MoviesList from '../components/moviesList';
 const Home = () => {
   return (
     <div>

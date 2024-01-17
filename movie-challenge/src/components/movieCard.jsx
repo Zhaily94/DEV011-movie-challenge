@@ -5,13 +5,9 @@ const MovieCard = ({ element, index }) => {
 
   const styles = {
     background: `url(${url_image + element.poster_path})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '310px',
-    width: '210px'
   };
 
-  console.log(element)
+  // console.log(element)
   return (
     <dl className='contenedor' key={index}>
       <div className="container-img" style={styles}>

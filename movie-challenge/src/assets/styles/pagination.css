@@ -1,0 +1,12 @@
+.container-pagination{
+    display: flex;
+    justify-content: space-around;
+}
+.active>.page-link, .page-link.active {
+    background-color: #FA1F6F;
+    border-color: #FA1F6F;
+}  
+
+.pagination {
+    --bs-pagination-color:#25252B;
+}
