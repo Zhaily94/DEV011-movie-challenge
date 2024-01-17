@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    background-size: cover !important; 
+    background-position: center !important;
+    height: 310px;
+    width: 210px;
 }
 
 .container-img.txt-movies {
@@ -11,7 +15,7 @@
     margin: 0 auto; 
 }
 
-dt.txt-movies {
+.txt-movies {
     display: flex;
     justify-content: center;
     padding-left: 30px;
@@ -21,15 +25,15 @@ dt.txt-movies {
 }
 .texto {
     opacity: 0;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8547794117647058) 42%, rgba(255, 255, 255, 0) 82%);
-    height: 310px;
+    height: 100%;
     padding-top: 183px;
     border-radius: 0.5rem;
-    transition: opacity 0.3s ease-in-out;
   }
   
   .contenedor:hover .texto {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8547794117647058) 42%, rgba(255, 255, 255, 0) 82%);
+    transition: opacity 0.3s ease-in-out;
     opacity: 1;
   }
   

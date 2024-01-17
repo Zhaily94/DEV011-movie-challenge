@@ -1,6 +1,6 @@
 import React from 'react';
-import MoviesList from '../components/moviesList.js';
-import Navbar from '../components/navbar.js';
+import MoviesList from '../components/moviesList.jsx';
+import Navbar from '../components/navbar.jsx';
 
 const Movies = () => {
   return (
