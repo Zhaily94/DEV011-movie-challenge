@@ -15,24 +15,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="navbar-collapse">
-        {/* <img class="navbar-brand" src='../assets/images/FilmFlix.ico.png'alt="Img" /> */}
-        <Link class="nav-link" to="/">FilmFlix</Link>
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-          <Link class="nav-link" to="/">Home</Link>
+    <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="navbar-collapse">
+      {/* <img src="../assets/images/FilmFlix.png" alt="Img" /> */}
+
+        <Link className="nav-link" to="/"><img src="FilmFlix-logo.svg" alt="" className="navbar-logo" />FilmFlix</Link>
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+          <Link className="nav-link" to="/">Home</Link>
           </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/Movies">Movies</Link>
+          <li className="nav-item">
+            <Link className="nav-link" to="/Movies">Movies</Link>
           </li>
-          <li class="nav-item">
-          <Link class="nav-link" to="/Series">Series</Link>
+          <li className="nav-item">
+          <Link className="nav-link" to="/Series">Series</Link>
           </li>
         </ul>
-        <form class='form-input'>
-          <input class="form-control mr-sm-2" type="buscar" placeholder="Buscar" aria-label="Buscar" />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <form className='form-input'>
+          <input className="form-control mr-sm-2" type="buscar" placeholder="Buscar" aria-label="Buscar" />
+          <button className="btn btn-success" type="submit">Buscar</button>
         </form>
       </div>
     </nav>
