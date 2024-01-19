@@ -1,13 +1,21 @@
+import React from 'react';
 import '../assets/styles/movieCard.css';
 const url_image = `https://image.tmdb.org/t/p/original`;
+//esto se utiliza cuando son objetos
+interface Movie {
+  poster_path: string;
+  title: string;
+  release_date: string;
+}
+interface MovieCardProps {
+  element: Movie;
+  index: number;
+}
 
-const MovieCard = ({ element, index }) => {
-
+const MovieCard: React.FC<MovieCardProps> = ({element, index}) => {
   const styles = {
     background: `url(${url_image + element.poster_path})`,
   };
-
-  // console.log(element)
   return (
     <dl className='contenedor' key={index}>
       <div className="container-img" style={styles}>
@@ -19,6 +27,5 @@ const MovieCard = ({ element, index }) => {
     </dl>
   );
 };
-
 
 export default MovieCard;

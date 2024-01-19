@@ -6,7 +6,8 @@ import "../assets/styles/moviesList.css";
 
 const API_KEY = "6a52c607bc9ccde97ffc9eeda56389eb";
 const URL_TMDB = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
-const PELICULAS_POR_PAGINA = 5;
+// const PELICULAS_POR_PAGINA = 5;
+
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +33,8 @@ const MovieList = () => {
 
     obtenerPeliculas();
   }, [paginaActual]);
-  const cambiarPagina = (nuevaPagina) => {
+
+  const cambiarPagina = (nuevaPagina: number) => {
     setPaginaActual(nuevaPagina);
   };
 
