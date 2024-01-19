@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/navbar.css';
 
 const Navbar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setSearchTerm(event.target.value);
+  // };
 
-  const handleSearch = () => {
-    // Aquí puedes realizar acciones específicas cuando se realiza la búsqueda
-    console.log('Búsqueda:', searchTerm);
-  };
+  // const handleSearch = () => {
+  //   // Aquí puedes realizar acciones específicas cuando se realiza la búsqueda
+  //   console.log('Búsqueda:', searchTerm);
+  // };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">

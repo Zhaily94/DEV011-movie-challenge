@@ -1,6 +1,5 @@
-import React from 'react';
-import Navbar from '../components/navbar.jsx';
-import MoviesList from '../components/moviesList';
+import Navbar from '../components/navbar.tsx';
+import MoviesList from '../components/moviesList.tsx';
 const Home = () => {
   return (
     <div>

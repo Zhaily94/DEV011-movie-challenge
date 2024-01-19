@@ -1,7 +1,14 @@
-import '../assets/styles/pagination.css'
 import React from 'react';
+import '../assets/styles/pagination.css'
 
-const Pagination = ({ paginaActual, totalPaginas, cambiarPagina }) => {
+interface PaginationProps {
+  paginaActual: number;
+  totalPaginas: number;
+  // =>: Indica que la función devuelve algo. En este caso, void significa que la función no devuelve ningún valor.
+  cambiarPagina: (nuevaPagina: number) => void;
+}
+
+const Pagination: React.FC<PaginationProps> = ({paginaActual, totalPaginas, cambiarPagina }) => {
   return (
     <div>
       <button
