@@ -1,4 +1,5 @@
 import Navbar from '../components/navbar.tsx';
+// import React from 'react';
 import MoviesList from '../components/moviesList.tsx';
 const Home = () => {
   return (
