@@ -1,4 +1,3 @@
-import React from 'react';
 import MoviesList from '../components/moviesList.tsx';
 import Navbar from '../components/navbar.tsx';
 
