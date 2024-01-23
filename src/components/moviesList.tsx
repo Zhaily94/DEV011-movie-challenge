@@ -40,7 +40,6 @@ const MovieList = () => {
 
   return (
     <div className="container-table">
-      {/* <h1>Lista de Películas</h1> */}
       <section className="container-card">
         {movies.map((element, index) => (
           <MovieCard element={element} index={index} />
