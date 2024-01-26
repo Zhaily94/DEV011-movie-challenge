@@ -20,8 +20,8 @@ const MovieCard: React.FC<MovieCardProps> = ({element, index}) => {
     <dl className='contenedor' key={index}>
       <div className="container-img" style={styles}>
         <div className='texto'>
-        <dt className="txt-movies">{element.title}</dt>
-        <dt className="txt-movies">{element.release_date.substring(0, 4)}</dt>
+        <dt className="txt-movies">{element?.title}</dt>
+        <dt className="txt-movies">{element.release_date?.substring(0, 4)}</dt>
         </div>
       </div>
     </dl>
