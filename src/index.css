@@ -5,3 +5,16 @@ body {
   color: #FFFFFF;
   /* color: black; */
 }
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer; /* Cambiar el cursor a la mano */
+  
+}
+
+/* Estilos adicionales si es necesario */
+/* Por ejemplo, puedes agregar estilos de color, fondo, etc. */
+a:hover {
+  text-decoration: underline; /* Añadir subrayado al pasar el mouse sobre el enlace */
+}
