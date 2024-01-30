@@ -17,8 +17,12 @@
     align-content: stretch;
     justify-content: space-evenly;
     align-items: baseline;
-    gap: 32rem;
+    gap: 25rem;
    
+}
+
+.navbar-nav {
+    margin-left: 270px;
 }
 
 .nav-link:focus, .nav-link:hover {
