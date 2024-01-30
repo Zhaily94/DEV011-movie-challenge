@@ -3,23 +3,41 @@ import { Link } from "react-router-dom";
 import "../assets/styles/navbar.css";
 
 interface NavbarProps {
-  valorSelected: string;
+  valorSelected?: string;
   onValorSelectedChange: (newValue: string) => void;
+  valorSelectedOrder?: string;
+  onValorSelectedChangeOrder: (newValue: string) => void;
 }
 
 //Aqui se obtienen dos props el valor seleccionado y el valor cambiado todo sucede hasta que recibe un evento de clic
-const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) => {
-  const changeSelection = ( event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange, valorSelectedOrder, onValorSelectedChangeOrder }) => {
+
+  //funcion para el cambio de seleccion de genero
+  const changeSelection = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     const valorSelected = event.currentTarget.getAttribute("data-value");
     // console.log(valorSelected);
     onValorSelectedChange(valorSelected || "");
   };
 
-  const isActive = (value: string) => {
-    return value === valorSelected || (!valorSelected && value === ""); // Agrega la condición para el valor vacío
+  //funcion para el cambio de seleccion de tipo de orden
+  const changeSelectionOrder = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    const valorSelectedOrder = event.currentTarget.getAttribute("data-value");
+  // console.log(valorSelectedOrder)
+    onValorSelectedChangeOrder(valorSelectedOrder || "");
+  };
+
+  //Esto es para validar de que los valores no esten vacios
+  const isActive = (value: string, valueOrder: string) => {
+    return (
+      (value === valorSelected || (!valorSelected && value === "")) && // Agrega la condición para el valor vacío
+      (valueOrder === valorSelectedOrder || (!valorSelectedOrder && valueOrder === ""))
+    );
   };
   
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="navbar-collapse">
@@ -28,12 +46,12 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
           FilmFlix
         </Link>
         <ul className="navbar-nav">
-          <li className={`nav-item ${isActive("Home")}`}>
+          <li className={`nav-item ${isActive("Home", "")}`}>
             <Link className="nav-link" to="/">
               Home
             </Link>
           </li>
-          <li className={`nav-item ${isActive("Movies")}`}>
+          <li className={`nav-item ${isActive("Movies", "")}`}>
             <Link className="nav-link" to="/Movies">
               Movies
             </Link>
@@ -52,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value= '28'
+                  data-value="28"
                   onClick={changeSelection}
                 >
                   Action
@@ -62,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value= '12'
+                  data-value="12"
                   onClick={changeSelection}
                 >
                   Adventure
@@ -72,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='16'
+                  data-value="16"
                   onClick={changeSelection}
                 >
                   Animation
@@ -82,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='35'
+                  data-value="35"
                   onClick={changeSelection}
                 >
                   Comedy
@@ -92,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='80'
+                  data-value="80"
                   onClick={changeSelection}
                 >
                   Crime
@@ -102,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='99'
+                  data-value="99"
                   onClick={changeSelection}
                 >
                   Documentary
@@ -112,7 +130,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='18'
+                  data-value="18"
                   onClick={changeSelection}
                 >
                   Drama
@@ -122,7 +140,7 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
                 <a
                   className="dropdown-item"
                   href="#"
-                  data-value='10749'
+                  data-value="10749"
                   onClick={changeSelection}
                 >
                   Romance
@@ -131,29 +149,37 @@ const Navbar: React.FC<NavbarProps> = ({ valorSelected, onValorSelectedChange}) 
             </ul>
           </li>
 
-          {/* <li className="nav-item dropdown">
+          <li className="nav-item dropdown">
             <button
               className="btn btn-dark dropdown-toggle"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Genero
+              Ordenar por
             </button>
             <ul className="dropdown-menu dropdown-menu-dark">
-              {["Accion", "Comedia", "Suspenso"].map((genre) => (
-                <li key={genre}>
-                  <Link
-                    className={`dropdown-item ${isActive(genre)}`}
-                    to="#"
-                    data-value={genre}
-                    onClick={changeSelection}
-                  >
-                    {genre}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  data-value="original_title.asc"
+                  onClick={changeSelectionOrder}
+                >
+                  A-Z
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  data-value="original_title.desc"
+                  onClick={changeSelectionOrder}
+                >
+                  Z-A
+                </a>
+              </li>
             </ul>
-          </li> */}
+          </li>
         </ul>
         <form className="form-input">
           <input

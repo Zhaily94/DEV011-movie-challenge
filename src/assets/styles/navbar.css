@@ -17,7 +17,7 @@
     align-content: stretch;
     justify-content: space-evenly;
     align-items: baseline;
-    gap: 39rem;
+    gap: 32rem;
    
 }
 
@@ -57,6 +57,8 @@ img.navbar-logo {
 button.btn.btn-dark.dropdown-toggle {
     margin-top: 2px;
     font-size: 18px;
+    width: 158px;
+    margin-right: 8px;
 }
 
 .btn-dark {

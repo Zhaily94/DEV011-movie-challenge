@@ -6,6 +6,7 @@ interface Movie {
   poster_path: string;
   title: string;
   release_date: string;
+  id: number;
 }
 interface MovieCardProps {
   element: Movie;
@@ -14,7 +15,7 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({element, index}) => {
   const styles = {
-    background: `url(${url_image + element.poster_path})`,
+    background: `url(${url_image + element?.poster_path})`,
   };
   return (
     <dl className='contenedor' key={index}>

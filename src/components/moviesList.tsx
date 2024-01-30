@@ -1,33 +1,42 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import React from 'react';
+import React from "react";
 import MovieCard from "./movieCard";
 import Pagination from "./pagination";
 import "../assets/styles/moviesList.css";
 
 interface MovieListProps {
-  genre: number;
+  genre: string;
+  typeOrder: string;
 }
 
 const API_KEY = "6a52c607bc9ccde97ffc9eeda56389eb";
 const URL_TMDB = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
-const MovieList: React.FC<MovieListProps> = ({ genre }) => {
+// https://api.themoviedb.org/3/discover/movie?api_key=6a52c607bc9ccde97ffc9eeda56389eb&with_genres=28&language=es&sort_by=original_title.asc
+
+const MovieList: React.FC<MovieListProps> = ({ genre, typeOrder }) => {
   const [movies, setMovies] = useState([]);
-  // const [moviesFiltered, setMoviesFiltered] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(0);
 
+ 
+  const params = {
+    api_key: API_KEY,
+    with_genres: genre || "",
+    language: "es",
+    page: paginaActual,
+  };
+
+  if (typeOrder) {
+    params.sort_by = typeOrder || "";
+  }
+  
   useEffect(() => {
     const obtenerPeliculas = async () => {
       try {
         const respuesta = await axios.get(URL_TMDB, {
-          params: {
-            api_key: API_KEY,
-            with_genres: genre ?? "",
-            // sort_by: 'asc',
-            page: paginaActual,
-          },
+          params: params,
         });
 
         setMovies(respuesta.data.results);
@@ -36,45 +45,21 @@ const MovieList: React.FC<MovieListProps> = ({ genre }) => {
         console.error("Error al obtener las películas:", error);
       }
     };
-    
+
     obtenerPeliculas();
-  }, [paginaActual, genre]);
-
-  // useEffect(() => {
-  //   const obtenerGeneros = async () => {
-  //     try {
-  //       const specificGenreId: string = genre.toString(); // Convertir a cadena el valor que nos trae el dropdown
-  //       const arrayMoviesFiltered = [];
-  //       if (movies && movies.length > 0) { // validacion para que no tenga un array vacio
-  //         movies.forEach((element: Genre) => { // realiza la iteracion de cada elemento para encontrar coincidencias del dropdown con la bd
-  //           if (element.genre_ids.includes(parseInt(specificGenreId, 10))) { // convierte lo consultado a string para que sea comparacion de strings 
-  //             arrayMoviesFiltered.push(element);
-  //           }
-  //         });
-  //         console.log(arrayMoviesFiltered);
-  //         setMovies(arrayMoviesFiltered)
-  //       } else {
-  //         console.log("La propiedad 'genres' está vacía o no contiene datos.");
-  //       }
-  //     } catch (error) {
-  //       console.error('Error al realizar la consulta:', error);
-  //     }
-  //   };
-  //   obtenerGeneros();
-  // },[genre]);
-
+  }, [paginaActual, genre, typeOrder]);
 
   const cambiarPagina = (nuevaPagina: number) => {
     setPaginaActual(nuevaPagina);
   };
 
   return (
-  
     <div className="container-table">
-      <p>Valor Recibido: {genre}</p>
+      <p>Genero Recibido: {genre}</p>
+      <p>Orden Recibido: {typeOrder}</p>
       <section className="container-card">
         {movies.map((element, index) => (
-          <MovieCard element={element} index={index} />
+          <MovieCard key={element.id} element={element} index={index} />
         ))}
       </section>
       <Pagination
