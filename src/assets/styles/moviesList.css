@@ -4,14 +4,22 @@
 }
 
 section.container-card {
-    display: flex;
+    /* display: flex;
     padding: 23px;
     margin-left: 40px;
     margin-right: 40px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1rem; */
+    display: flex;
+    width: 1300px;
+    /* padding: 8px; */
+    margin-left: 513px;
+    margin-right: 40px;
+    flex-direction: row;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .container-movie{

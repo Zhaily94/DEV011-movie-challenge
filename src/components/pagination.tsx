@@ -1,5 +1,5 @@
-import React from 'react';
-import '../assets/styles/pagination.css'
+import React from "react";
+import "../assets/styles/pagination.css";
 
 interface PaginationProps {
   paginaActual: number;
@@ -8,25 +8,62 @@ interface PaginationProps {
   cambiarPagina: (nuevaPagina: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({paginaActual, totalPaginas, cambiarPagina }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  paginaActual,
+  totalPaginas,
+  cambiarPagina,
+}) => {
   return (
-    <div>
-      <button
-        onClick={() => cambiarPagina(paginaActual - 1)}
-        disabled={paginaActual === 1}
-      >
-        Anterior
-      </button>
+    <nav aria-label="Page navigation example">
+      <ul className="pagination">
+        <li className="page-item">
+          <a
+            className="page-link"
+            href="#"
+            aria-label="Previous"
+            onClick={() => cambiarPagina(paginaActual - 1)}
+            disabled={paginaActual === 1}
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li className="page-item">
+          <a className="page-link" href="#">
+            {paginaActual}
+          </a>
+        </li>
 
-      <span>Página {paginaActual} de {totalPaginas}</span>
+        <li className="page-item">
+          <a
+            className="page-link"
+            href="#"
+            aria-label="Next"
+            onClick={() => cambiarPagina(paginaActual + 1)}
+            disabled={paginaActual === totalPaginas}
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-      <button
-        onClick={() => cambiarPagina(paginaActual + 1)}
-        disabled={paginaActual === totalPaginas}
-      >
-        Siguiente
-      </button>
-    </div>
+    // <div>
+    //   <button
+    //     onClick={() => cambiarPagina(paginaActual - 1)}
+    //     disabled={paginaActual === 1}
+    //   >
+    //     Anterior
+    //   </button>
+
+    //   <span>Página {paginaActual} de {totalPaginas}</span>
+
+    //   <button
+    //     onClick={() => cambiarPagina(paginaActual + 1)}
+    //     disabled={paginaActual === totalPaginas}
+    //   >
+    //     Siguiente
+    //   </button>
+    // </div>
   );
 };
 

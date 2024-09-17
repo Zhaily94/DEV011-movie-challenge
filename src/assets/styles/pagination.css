@@ -9,4 +9,12 @@
 
 .pagination {
     --bs-pagination-color:#25252B;
+    display: flex;
+    justify-content: center;
+    --bs-pagination-bg: #FA1F6F;
+}
+
+.page-link {
+    color: #FFFFFF;
+    font-weight: bold;
 }
